@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kosár</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+
+</head>
+
+<body style="background-color: rgba(0, 0, 0, 0);">
+  <video [autoplay]="true" [muted]="true" [loop]="true" class="bg-video">
+    <source src="kajasvideo.mp4" type="video/mp4">
+  </video>
+
+  <app-navbar></app-navbar>
+  <div class="container mt-5">
+    <div id="fokeret">
+      <div class="row">
+        <!-- Profil Kép és Menü -->
+        <div class="col-md-4 text-center keret py-4 ">
+          <div class="mb-3">
+            <img src="profilkep.jpg" alt="Profilkép" class="img-fluid rounded-circle profile-image">
+          </div>
+          <h3>{{Felhasznalo.nev}}</h3>
+          <a href="bejelentkezes" style="color: white; text-align: center; ">
+            <h3 *ngIf="Felhasznalo.nev==null">Kérlek jelentkezz be!</h3>
+          </a>
+          <ul class="list-group mt-4">
+            <a href="profil">
+              <li class="list-group-item animacio">📋 Adataim</li>
+            </a>
+            <a href="kosar">
+              <li class="list-group-item animacio">🛒 Kosár</li>
+            </a>
+            <a href="rendeleseim">
+              <li class="list-group-item animacio">📦 Rendeléseim</li>
+            </a>
+          </ul>
+        </div>
+
+        <div class="col-md-8 keret adatok p-4 ">
+          <div class="container mt-5 ">
+            <h2 class="mb-4">Kosaram</h2>
+            <div *ngIf="Kosar.length === 0">
+              <p>A kosár üres.</p>
+            </div>
+            <div class="row" *ngIf="Kosar.length > 0">
+
+              <div class="col-12 col-md-6 mb-3" *ngFor="let kosarelem of Kosar">
+                <div class="card p-3 shadow termekhatter">
+                  <div class="row align-items-center">
+                    <div class="col-4">
+                      <img alt="topjoy image" class="img-fluid" [src]="kosarelem.Kepurl" />
+                    </div>
+                    <div class="col-8">
+                      <h5>{{kosarelem.Termeknev}}</h5>
+                      <h6>{{kosarelem.Tipus}}</h6>
+                      <div class="d-flex justify-content-between">
+                        <div class="quantity-control">
+
+                          <button class="decrease" (click)="csokkentes(kosarelem.Cikkszam)">-</button>
+                          <input type="text" value="{{kosarelem.quantity}}" class="quantity" disabled />
+                          <button class="increase" (click)="noveles(kosarelem.Cikkszam)">+</button>
+
+                        </div>
+
+                        <span class="total price" data-price="450">{{kosarelem.Egysegar}} FT</span>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+
+            <div class="summary mt-4" *ngIf="Kosar.length > 0">
+              <h5>Rendelés összesítő</h5>
+              <div class="d-flex justify-content-between">
+                <span>Nettó ár</span>
+                <span id="netto">{{getnettoar()}} FT</span>
+              </div>
+              <div class="d-flex justify-content-between">
+                <span>Áfa 27%</span>
+                <span id="vat">{{getado()}} FT</span>
+              </div>
+              <div class="d-flex justify-content-between mt-3">
+                <strong style="font-size: 23px; color: rgb(245, 154, 27);">Összesen</strong>
+                <strong id="total" style="font-size: 23px; color: rgb(245, 154, 27);">{{getteljesar()}} FT</strong>
+              </div>
+              <a href="rendelesosszesito" *ngIf="Felhasznalo.nev !=null"><button class="btn mt-3">Tovább az
+                  ellenőrzéshez ➤</button></a>
+              <h6 style="color: brown;" *ngIf="Felhasznalo.nev==null">A rendeléshez be kell jelentkezzned!</h6>
+            </div>
+          </div>
+
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

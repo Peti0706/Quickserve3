@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Quick Serve</title>
+
+
+</head>
+
+<body style="background-color: rgba(0, 0, 0, 0)">
+    <video [autoplay]="true" [muted]="true" [loop]="true" class="bg-video" class="bg-video">
+        <source src="kajasvideo.mp4" type="video/mp4">
+    </video>
+
+    <!-- Navigációs sáv -->
+
+    <app-navbar></app-navbar>
+    <div class="container mt-5">
+        <div id="fokeret">
+            <div class="row">
+                <!-- Profil Kép és Menü -->
+                <div class="col-md-4 text-center keret py-4 ">
+                    <div class="mb-3">
+                        <img src="profilkep.jpg" alt="Profilkép" class="img-fluid rounded-circle profile-image">
+                    </div>
+                    <h3>{{Felhasznalo.nev}}</h3>
+                    <a href="bejelentkezes" style="color: white; text-align: center; "><h3 *ngIf="Felhasznalo.nev==null">Kérlek jelentkezz be!</h3></a>
+                    <ul class="list-group mt-4">
+                        <a href="profil">
+                            <li class="list-group-item animacio">📋 Adataim</li>
+                        </a>
+                        <a href="kosar">
+                            <li class="list-group-item animacio">🛒 Kosár</li>
+                        </a>
+                        <a href="rendeleseim">
+                            <li class="list-group-item animacio">📦 Rendeléseim</li>
+                        </a>
+                    </ul>
+                </div>
+
+
+                <div class="col-md-8 keret adatok p-4 shadow">
+                    <h2 class="mb-4"> Rendeléseim</h2>
+                    <div class="orders-container">
+                        <h3 *ngIf="Rendelesek.length==0">Még nincsenek rendeléseid!</h3>
+                        <div *ngFor="let rendeles of Rendelesek; let i = index" [class.order-card]="i % 2 === 0"
+                        [class.order-card-paros]="i % 2 !== 0">
+                            <div class="order-info">
+                                <p class="order-id"><strong>Rendelési azonosító: <span class="azonosito">#{{rendeles.Megrendeles_ID}}</span></strong></p>
+                                <p class="order-date">{{rendeles.Datum | date: 'yyyy-MM-dd HH:mm'}}</p>
+                            </div>
+                            <div class="order-price"><strong>{{rendeles.Osszeg}} FT</strong></div>
+                            <button class="btn btn-primary" (click)="megnezem(rendeles.Megrendeles_ID)">Megnézem</button>
+                        </div>
+                    </div>
+
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

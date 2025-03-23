@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eladói oldal</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+  <app-navbar-eladoi></app-navbar-eladoi>
+  <div class="osszefogo">
+    <div class="row sor" style="margin:0px; min-height: 92vh;">
+      <div class="col-12 col-lg-2 baloldal">
+        <div class="szekcio2">
+          <div>
+            <h2 style="margin-bottom: 15px;">Bejelentkezve mint,</h2>
+            <h1>{{Elado[0].nev}}</h1>
+          </div>
+          <div class="elem">
+            <div class="info">
+              <img src="mail.png" alt="" style="margin-right: 12px;">
+              <h3>Email:</h3>
+            </div>
+            <div class="kiemelt">
+              <p>{{Elado[0].email}}</p>
+            </div>
+          </div>
+          <div class="elem">
+            <div class="info">
+              <img src="iphone.png" alt="">
+              <h3>Telefonszám:</h3>
+            </div>
+            <div class="kiemelt">
+              <p>{{Elado[0].telefonszam}}</p>
+            </div>
+          </div>
+          <div>
+            <h3 style="border-bottom: 1px solid; color: rgba(227, 202, 164, 0.855);">Nyitvatartás:</h3>
+            <h5>{{getNyitvatartas(0).napok}}</h5>
+            <h5>{{getNyitvatartas(0).idok}}</h5>
+          </div>
+          <div>
+            <h2 style="color: rgba(219, 203, 178, 0.855); font-size: 25px;">Mai nap:</h2>
+            <h3>{{nap}}</h3>
+            <h3>{{datum }}</h3>
+            <h3>{{ido}}</h3>
+          </div>
+        </div>
+      </div>
+      <div class="jobboldal col-12 col-lg-9mb-4">
+        <div class="doboz1 mb-3">
+          <img src="cola.png" alt="" class="img-fluid">
+          <h1 class="cim">Rendelések</h1>
+          <img src="cola.png" alt="" class="img-fluid">
+        </div>
+        <div class="kartyak p-3">
+          <!-------Kártya-->
+          <div class="kartya mb-3" *ngFor="let rendeles of Rendelesek">
+            <div class="adat_bal">
+              <h3 class="azonositoszo">Rendelési azonosító: <span class="azonosito">#{{rendeles.Megrendeles_ID}}</span></h3>
+              <p class="datum">{{rendeles.Datum | date: 'yyyy-MM-dd HH:mm'}}</p>
+            </div>
+            <div class="kozep">
+              <h2 style="color: black;">Vevő: {{rendeles.Nev}}</h2>
+            </div>
+            <div class="adat_jobb row">
+              <div class="col-12 col-lg-6 align-items-center">
+                <h2>{{rendeles.Osszeg}} FT</h2>
+              </div>
+              <div class="col-12 col-lg-6 align-items-center">
+                <button class="btn btn-success" (click)="megnezem(rendeles.Megrendeles_ID)">Megnézem</button>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        <!-- Kuponkezelő rész hozzáadása -->
+        <div class="kupon-kezelo">
+          <h1 style="font-size: 25px; font-weight: bold; font-family: Arial, Helvetica, sans-serif; letter-spacing: 2px;">Kuponok kezelése</h1>
+          <div class="kupon-inputok">
+            <input type="text" id="kupon-kod" placeholder="Kedvezmény kódja" class="form-control" name="Kuponkod" [(ngModel)]="Kuponkod">
+            <input type="number" id="kupon-mertek" placeholder="Kedvezmény mértéke (%)" class="form-control" min="1" max="100" name="Arengedmeny" [(ngModel)]="Arengedmeny">
+            <button id="kupon-letrehozas" class="btn" (click)="AddKupon()">Létrehozás</button>
+            <div><p *ngIf="kuponerror">{{kuponerror}}</p></div>
+            
+          </div>
+          <div class="kupon-lista mt-3">
+            <!-- Példa kuponok statikusan -->
+            <div class="kupon-kartya" *ngFor="let kupon of Kuponok | slice:1">
+              <span>{{kupon.Kuponkod}} - {{kupon.Arengedmeny}}%</span>
+              <button class="btn torles-btn" (click)="DeleteKupon(kupon.ID)">Törlés</button>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

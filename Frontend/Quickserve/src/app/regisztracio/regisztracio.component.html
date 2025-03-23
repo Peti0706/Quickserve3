@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regisztráció</title>
+   
+</head>
+
+<body>
+
+    <video [autoplay]="true" [muted]="true" [loop]="true" class="bg-video">
+        <source src="kajasvideo.mp4" type="video/mp4">
+    </video>
+
+    <div class="container">
+
+        <h1>Üdvözöljük a <span class="q">Quick</span> <span class="s">Serve</span>-nél!</h1>
+        <h3>Kérlek regisztrálj!</h3>
+
+        <form class="register-form" (submit)="register(); $event.preventDefault()">
+            <input type="text" placeholder="Felhasználónév" required class="m-2" [(ngModel)]="regNev" name="regNev">
+            <input type="email" placeholder="Email cím" required class="m-2" [(ngModel)]="regEmail" name="regEmail">
+            <input type="password" placeholder="Jelszó" required class="m-2" [(ngModel)]="regJelszo" name="regJelszo">
+            <input type="text" placeholder="Telefonszám" required class="m-2" [(ngModel)]="regTelefonszam" name="regTelefonszam">
+            <input type="text" placeholder="Lakcím" required class="m-2" [(ngModel)]="regLakcim" name="regLakcim">
+            <input type="number" placeholder="Osztály" min="9" max="13" class="m-2" [(ngModel)]="regOsztaly" name="regOsztaly">
+            <br><br>
+
+            
+
+            <br>
+            <button type="submit">Regisztrálás</button>
+
+            <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+
+        </form>
+        <br>
+        <p>Már van fiókod? <a href="bejelentkezes">Jelentkezz be itt!</a></p>
+
+    </div>
+</body>
+
+</html>

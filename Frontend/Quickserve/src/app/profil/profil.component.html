@@ -1,0 +1,84 @@
+
+
+<main>
+    <video class="bg-video" [autoplay]="true" [muted]="true" [loop]="true">
+        <source src="kajasvideo.mp4" type="video/mp4">
+    </video>
+
+    <!-- Navigációs sáv -->
+
+    <app-navbar></app-navbar>
+    <div class="container mt-5 ">
+        <div id="fokeret">
+        <div class="row">
+                     
+
+
+
+            <div class="col-md-4 text-center keret py-4">
+                <div class="mb-3">
+                    <img src="profilkep.jpg" alt="Profilkép" class="img-fluid rounded-circle profile-image">
+                </div>
+                <h3>{{Felhasznalo.nev}}</h3>
+                <a href="bejelentkezes" style="color: white; text-align: center; "><h3 *ngIf="Felhasznalo.nev==null">Kérlek jelentkezz be!</h3></a>
+                <ul class="list-group mt-4">
+                    <a href="profil">
+                        <li class="list-group-item animacio">📋 Adataim</li>
+                    </a>
+                    <a href="kosar">
+                        <li class="list-group-item animacio">🛒 Kosár</li>
+                    </a>
+                    <a href="rendeleseim">
+                        <li class="list-group-item animacio">📦 Rendeléseim</li>
+                    </a>
+                </ul>
+            </div>
+
+
+            <div class="col-md-8 keret adatok p-4" >
+                <h2 class="mb-4"> Adataim</h2>
+
+
+                <form *ngIf="Felhasznalo.nev !=null">
+
+                    <div class="form-group">
+                        <label for="nev" class="font-weight-bold">Név</label>
+                        <input type="text" id="nev" class="form-control" value="{{Felhasznalo.nev}}" disabled>
+                    </div>
+                    <br>
+
+                    <div class="form-group">
+                        <label for="osztaly" class="font-weight-bold">Osztály</label>
+                        <input type="text" id="osztaly" class="form-control" value="{{Felhasznalo.osztaly}}. osztály" disabled>
+                    </div>
+                    <br>
+
+                    <div class="form-group">
+                        <label for="email" class="font-weight-bold">E-mail</label>
+                        <input type="email" id="email" class="form-control" value="{{Felhasznalo.email}}" disabled>
+
+                    </div>
+                    <br>
+
+                    <div class="form-group">
+                        <label for="telefon" class="font-weight-bold">Telefonszám</label>
+                        <input type="tel" id="telefon" class="form-control" value="{{Felhasznalo.telefonszam}}" disabled>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label for="telefon" class="font-weight-bold">Lakcím</label>
+                        <input type="tel" id="telefon" class="form-control" value="{{Felhasznalo.lakcim}}" disabled>
+                    </div>
+
+
+                </form>
+                <br>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</main>

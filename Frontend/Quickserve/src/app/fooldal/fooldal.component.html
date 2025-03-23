@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Serve</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+</head>
+<app-navbar></app-navbar>
+<body>
+
+
+
+    <section id="hero" class="d-flex align-items-center justify-content-center text-center">
+        <video [autoplay]="true" [muted]="true" [loop]="true" class="bg-video" style="z-index: 1;">
+            <source src="kajasvideo.mp4" type="video/mp4">
+        </video>
+        <div class="container" data-aos="fade-up">
+            <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="150">
+                <div class="col-lg-8 col-md-10 col-12">
+                    <h1 class="hero-title">Quick Serve</h1>
+                    <h3 class="mt-3">Üdvözlünk az oldalon!</h3>
+                    <h3 class="mt-2">Köszönjük, hogy az oldal aktív felhasználója lettél!</h3>
+                </div>
+            </div>
+            <div class="row justify-content-center gy-4 mt-5" data-aos="zoom-in" data-aos-delay="250">
+                <div class="col-lg-2 col-md-4 col-6 d-flex justify-content-center" style="margin-bottom: 15px">
+                    <div class="icon-box d-flex flex-column justify-content-center align-items-center">
+                        <i class="ri-store-line"></i>
+                        <h3>Nézz szét termékeink között</h3>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6 d-flex justify-content-center" style="margin-bottom: 15px">
+                    <div class="icon-box d-flex flex-column justify-content-center align-items-center">
+                        <i class="ri-store-line"></i>
+                        <h3>Tedd a kosárba amit szeretnél</h3>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6 d-flex justify-content-center" style="margin-bottom: 15px">
+                    <div class="icon-box d-flex flex-column justify-content-center align-items-center">
+                        <i class="ri-store-line"></i>
+                        <h3>Add le a rendelésed</h3>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-4 col-6 d-flex justify-content-center" style="margin-bottom: 15px">
+                    <div class="icon-box d-flex flex-column justify-content-center align-items-center">
+                        <i class="ri-store-line"></i>
+                        <h3>Várd az eladó visszajelzését</h3>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6 d-flex justify-content-center" style="margin-bottom: 15px">
+                    <div class="icon-box d-flex flex-column justify-content-center align-items-center">
+                        <i class="ri-store-line"></i>
+                        <h3>Vedd át a rendelésed</h3>
+                    </div>
+                </div>
+            </div>
+            <a href="#kategoriavalasztas" class="mt-5 d-inline-block">
+                <button class="boton-elegante">▼</button>
+            </a>
+        </div>
+    </section>
+
+
+    <br>
+
+
+    <!-- Kategóriák szekció -->
+    <div style="display: flex; justify-content: center;" id="kategoriavalasztas">
+        <section class="categories text-center my-4">
+            <h2>-- Válassz kategóriát --</h2>
+            <div class="category-buttons">
+                <a href="#üditők"><button class="c-button c-button--gooey">🥤 Üdítők
+                        <div class="c-button__blobs">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </button>
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="display: block; height: 0; width: 0;">
+                        <defs>
+                            <filter id="goo">
+                                <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur>
+                                <feColorMatrix in="blur" mode="matrix"
+                                    values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo"></feColorMatrix>
+                                <feBlend in="SourceGraphic" in2="goo"></feBlend>
+                            </filter>
+                        </defs>
+                    </svg>
+                </a>
+                <a href="#édességek"><button class="c-button c-button--gooey">🍫 Édességek<div class="c-button__blobs">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </button>
+                    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="display: block; height: 0; width: 0;">
+                        <defs>
+                            <filter id="goo">
+                                <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur>
+                                <feColorMatrix in="blur" mode="matrix"
+                                    values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo"></feColorMatrix>
+                                <feBlend in="SourceGraphic" in2="goo"></feBlend>
+                            </filter>
+                        </defs>
+                    </svg></a>
+                <button class="c-button c-button--gooey">🥪 Szendvicsek<div class=" c-button__blobs">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+            </div>
+            </button>
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="display: block; height: 0; width: 0;">
+                <defs>
+                    <filter id="goo">
+                        <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur>
+                        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
+                            result="goo"></feColorMatrix>
+                        <feBlend in="SourceGraphic" in2="goo"></feBlend>
+                    </filter>
+                </defs>
+            </svg>
+            <button class=" c-button c-button--gooey">🍟 Sós nasik<div class="c-button__blobs">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </button>
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="display: block; height: 0; width: 0;">
+                <defs>
+                    <filter id="goo">
+                        <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur>
+                        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
+                            result="goo"></feColorMatrix>
+                        <feBlend in="SourceGraphic" in2="goo"></feBlend>
+                    </filter>
+                </defs>
+            </svg>
+            <button class="c-button c-button--gooey">☕ Kávék<div class="c-button__blobs">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </button>
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="display: block; height: 0; width: 0;">
+                <defs>
+                    <filter id="goo">
+                        <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur>
+                        <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
+                            result="goo"></feColorMatrix>
+                        <feBlend in="SourceGraphic" in2="goo"></feBlend>
+                    </filter>
+                </defs>
+            </svg>
+    </div>
+    </section>
+    </div>
+    <br><br>
+
+<!-----KEdvencek-->
+<div *ngIf="kedvencTermekek.length > 0">
+  <div class="container my-4">
+    <h2>Kedvencek:</h2>
+    <br>
+      <div class="row" style="justify-content: center">
+          <div class="col-6 col-md-3 mb-4" *ngFor="let termek of kedvencTermekek">
+              <div class="card">
+                  <img [src]="termek.Kepurl" class="card-img-top" alt="Topjoy - Kaktusz">
+                  <div class="card-body d-flex flex-column justify-content-between">
+                      <div class="szoveg">
+                          <h5 class="card-title">{{termek.Termeknev}} - {{termek.Tipus}}</h5>
+                          <p class="card-text">{{termek.Egysegar}} Ft</p>
+                      </div>
+                      <div class="d-flex justify-content-between">
+                        <button class="btn btn-warning mt-2 termekkosar" (click)="Kosarbarak(termek)">Kosárba</button>
+                      <button class="btn mt-2" [ngClass]="{'btn-danger': isKedvenc(termek), 'btn-outline-danger': !isKedvenc(termek)}" (click)="toggleKedvenc(termek)">
+                        ❤️
+                      </button>
+                      </div>
+                      
+                  </div>
+              </div>
+          </div>
+     
+      </div>
+  </div>
+
+  <div style="text-align: center;">
+    <a href="">
+
+        <button class="boton-elegante">▲</button>
+    </a>
+</div>
+
+</div>
+
+
+
+    <!--TERMEKEK-->
+    <div *ngFor="let kategoria of kategoriak" class="kategoria-szekcio" [id]="kategoria.toLowerCase().replace(' ', '')">
+        <div class="container my-4">
+            <div class="row" style="justify-content: center">
+                <div class="col-6 col-md-3 mb-4" *ngFor="let termek of getTermekekByKategoria(kategoria)">
+                    <div class="card">
+                        <img [src]="termek.Kepurl" class="card-img-top" alt="Topjoy - Kaktusz">
+                        <div class="card-body d-flex flex-column justify-content-between">
+                            <div class="szoveg">
+                                <h5 class="card-title">{{termek.Termeknev}} - {{termek.Tipus}}</h5>
+                                <p class="card-text">{{termek.Egysegar}} Ft</p>
+                            </div>
+                            <div class="d-flex justify-content-between">
+                              <button class="btn btn-warning mt-2 termekkosar" (click)="Kosarbarak(termek)">Kosárba</button>
+                            <button class="btn mt-2" [ngClass]="{'btn-danger': isKedvenc(termek), 'btn-outline-danger': !isKedvenc(termek)}" (click)="toggleKedvenc(termek)">
+                              ❤️
+                            </button>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+           
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+          <a href="">
+  
+              <button class="boton-elegante">▲</button>
+          </a>
+      </div>
+
+    </div>
+
+    <!----Pop up ablak-->
+    <div class="success-popup" *ngIf="uzenet">
+      <p>Termék a kosárba helyezve!</p>
+    </div>
+
+ 
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

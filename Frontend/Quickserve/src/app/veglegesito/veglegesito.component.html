@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rendelés összesítő</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+
+<body style="background-color: rgba(0, 0, 0, 0)">
+    <video [autoplay]="true" [muted]="true" [loop]="true" class="bg-video">
+        <source src="kajasvideo.mp4" type="video/mp4">
+    </video>
+
+    <div class="container mt-5 mb-5">
+        <div id="fokeret">
+            <div class="row">
+                <!-- Rendelés összesítő tartalom -->
+                <div class="col-md-12 keret adatok p-4 shadow ">
+                    <h2 class="mb-4">Rendelés véglegesítése</h2>
+
+                    <!-- Megrendelő adatai -->
+                    <div class="customer-data mb-4 ">
+                        <h5>Megrendelő adatai</h5>
+                        <p><strong>Név:</strong> {{Felhasznalo.nev}}</p>
+                        <p><strong>Email cím:</strong> {{Felhasznalo.email}}</p>
+                        <p><strong>Telefonszám:</strong> {{Felhasznalo.telefonszam}}</p>
+                        <p><strong>Osztály:</strong> {{Felhasznalo.osztaly}}</p>
+                        <p><strong>Lakcím:</strong> {{Felhasznalo.lakcim}}</p>
+<br>
+                        <!-- Szünet választás -->
+                        <div class="form-group mt-3 margo">
+                            <label for="szunet"><strong>Melyik szünetbe kéred?</strong></label>
+                            <select class="form-control" id="szunet" name="szunet" [(ngModel)]="selectedSzunet">
+                                <option [ngValue]="null" selected disabled>Kérlek válassz egy szünetet</option>
+                                <option [ngValue]="1">1. szünet</option>
+                                <option [ngValue]="2">2. szünet</option>
+                                <option [ngValue]="3">3. szünet</option>
+                                <option [ngValue]="4">4. szünet</option>
+                                <option [ngValue]="5">5. szünet</option>
+                            </select>
+<br>
+                            <label for="coupon" class="mt-3"><strong>Kuponkód (opcionális)</strong></label>
+                            <input type="text" class="form-control custom-input" id="coupon" name="coupon"
+                                placeholder="Add meg a kuponkódot" [(ngModel)]="couponCode">
+                                <button class="gomb2 "  (click)="checkCoupon()">  <span class="ellenorzes ">Ellenőrzés</span></button>
+                                <div *ngIf="orderErrorMessage" class="error-message">
+                                    {{ orderErrorMessage }}
+                                  </div>
+                                  <div *ngIf="orderSuccessMessage" class="success-message">
+                                    {{ orderSuccessMessage }}
+                                  </div>
+                        </div>
+
+                        <!-- Fizetési mód választás -->
+                        <div class="form-group mt-3 pay-options ">
+                            <label class="pay-title"><strong>Fizetési mód:</strong></label><br>
+                            <div class="form-check form-check-inline pay-choice">
+                                <input class="form-check-input pay-radio" type="radio" name="payment" id="cash" value="Készpénz"
+                                    checked [(ngModel)]="selectedPaymentMethod">
+                                <label class="form-check-label pay-label" for="cash">Készpénz</label>
+                            </div>
+                            <div class="form-check form-check-inline pay-choice">
+                                <input class="form-check-input pay-radio" type="radio" name="payment" id="card" value="Bankkártya" [(ngModel)]="selectedPaymentMethod">
+                                <label class="form-check-label pay-label" for="card">Bankkártya</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Termékek listázása -->
+                    <div class="row termekeksorai">
+                        <div class="col-12 mb-3" *ngFor="let termek of Kosar">
+                            <div class="card p-3 shadow termekhatter">
+                                <div class="row align-items-center">
+                                    <div class="col-3">
+                                        <img alt="topjoy image" class="img-fluid" class="kep"
+                                            [src]="termek.Kepurl" />
+                                    </div>
+                                    <div class="col-9">
+                                        <h5 class="termeknev">{{termek.Termeknev}} - {{termek.Tipus}}</h5>
+                                        <div class="d-flex justify-content-between">
+                                            <span>Mennyiség: <span id="topjoy-qty">{{termek.quantity}}</span></span>
+                                            <span class="total price" data-price="450">{{termek.Egysegar}} FT</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+                    </div>
+
+                    <!-- Összegzés -->
+                    <div class="summary mt-4">
+                        <h5 class="osszesitocim">Rendelés összesítő</h5>
+                        <div class="d-flex justify-content-between">
+                            <span class="osszesitoszoveg">Nettó ár</span>
+                            <span class="netto osszesitoszoveg">{{getNetPrice()}} FT</span>
+
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span class="osszesitoszoveg">Áfa 27%</span>
+                            <span class="vat osszesitoszoveg">{{getVatAmount()}} FT</span>
+
+                        </div>
+                        <div class="d-flex justify-content-between mt-3">
+                            <strong style="font-size: 23px;">Összesen</strong>
+                            <strong id="total" style="font-size: 23px;">{{getTotalPrice()}} FT</strong>
+
+                        </div>
+                        <div class="d-flex justify-content-between mt-3">
+                            <strong style="font-size: 23px;" *ngIf="discount > 0">Kedvezményes végösszeg ({{ discount }}% kedvezménnyel):</strong>
+                            <strong id="total" style="font-size: 23px;" *ngIf="discount > 0"> {{ getDiscountedTotalPrice() }} Ft</strong>
+                        </div>
+
+                        <a href="kosar" class="btn mt-3 btn-sm"> « Vissza a kosárhoz</a>
+                        <br>
+                        <button class=" mt-3 btn-lg gomb" (click)="submitOrder()">Megrendelés
+                            véglegesítése ✓</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

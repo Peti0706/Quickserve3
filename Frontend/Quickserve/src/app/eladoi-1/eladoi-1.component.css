@@ -1,0 +1,562 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+* {
+  font-family: "Protest Strike", sans-serif;
+  padding: 0px;
+  margin: 0px;
+}
+
+h2 {
+  font-size: 21px;
+  padding-bottom: 10px;
+}
+
+p {
+  margin: 0px;
+}
+
+#logo {
+  max-width: 10vw;
+  max-height: 10vw;
+  margin-left: 20px;
+}
+
+.nav-item {
+  margin: 10px;
+}
+
+#navbar {
+  background: rgb(2, 0, 36);
+  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(18, 91, 174, 1) 100%);
+  height: 8vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.doboz1 {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto;
+  border-radius: 10px;
+
+}
+
+.doboz1 img {
+  max-width: 64px;
+  margin: 5px;
+  margin-bottom: 15px;
+}
+
+.kartya {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  height: 120px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px gray;
+  margin-bottom: 30px;
+  width: 99%;
+  margin: auto;
+}
+
+.kartya h1 {
+  font-size: 2.7vh;
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.kartyak {
+  height: 55vh;
+  overflow-y: scroll;
+  box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.6);
+  
+  border-radius: 10px;
+  margin-bottom: 15px;
+  background-color: #ffffff;
+
+}
+
+.kartyak::-webkit-scrollbar {
+  display: none;
+}
+
+.szekcio2 {
+  color: white;
+  padding:  10px;
+  height: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
+}
+
+.szekcio2 p {
+  margin: 5px;
+}
+
+.szekcio2 h1 {
+  margin: 5px;
+}
+
+.szekcio2 h2 {
+  margin: 5px;
+}
+
+.adat_jobb div {
+  display: flex;
+  justify-content: center;
+}
+
+#QS_kep_div {
+  display: flex;
+  justify-content: center;
+  height: 6vh;
+}
+
+.elem {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.osszefogo {
+  min-height: 92vh;
+}
+
+.baloldal {
+  padding: 0px;
+  justify-content: center;
+  background: linear-gradient(to bottom, rgba(2, 39, 66, 0.881) 50%, rgba(52, 160, 214, 0.7) 100%);
+  display: flex;
+}
+
+.jobboldal {
+  max-width: 80%;
+  margin: 20px auto;
+  margin-bottom: 7px;
+}
+
+body {
+  background-color: #dce3e5;
+  background-image: linear-gradient(180deg, #dce3e5 0%, #eaeaf1 100%);
+}
+
+.info {
+  display: flex;
+  align-items: center;
+}
+
+.info img {
+  height: 28px;
+}
+
+.info h3 {
+  margin: 0px;
+}
+
+.baloldal {
+  background-color: rgba(0, 58, 135, 0.9);
+}
+
+.szekcio2 {
+  color: #ffffff;
+}
+
+h5 {
+  margin-top: 10px;
+}
+
+.cim {
+  letter-spacing: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  text-shadow: 0px 0px 10px rgb(201, 118, 2);
+  font-size: 2rem;
+}
+
+.kiemelt {
+  background-color: rgba(214, 184, 139, 0.855);
+  font-size: 20px;
+  color: black;
+  margin-top: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 1px white;
+  padding-left: 5px;
+  padding-right: 5px;
+  border: 1px solid rgb(255, 255, 255);
+}
+
+.doboz1 {
+  background-color: #e48f108a;
+  box-shadow: 0px -1px 10px 2px rgb(105, 105, 105);
+}
+
+
+
+.kartya {
+  background-color: #E8EDED;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+.kartya:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.kartya h1 {
+  color: #333333;
+}
+
+.kartya p {
+  color: #666666;
+}
+
+.kartya h2 {
+  color: #db7a0a;
+  font-weight: bold;
+  padding-top: 7px;
+}
+
+.azonosito {
+  font-weight: bold;
+  color: #00588b;
+  font-size: 23px;
+  text-shadow: 0px 0px 1px rgb(0, 74, 95);
+  letter-spacing: 1px;
+}
+
+.azonositoszo {
+  font-size: 23px;
+  padding-bottom: 10px;
+}
+
+.datum {
+  font-size: 18px;
+}
+
+.kartya .btn {
+  position: relative;
+  padding: 10px 10px;
+  font-size: 18px;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+  background: linear-gradient(90deg, #023551, #156c95);
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0 4px 15px rgba(0, 36, 55, 0.868);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  z-index: 1;
+  letter-spacing: 1px;
+  width: 180px;
+}
+
+.kartya .btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: all 0.5s ease;
+  z-index: -1;
+}
+
+.kartya .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(2, 136, 209, 0.7);
+  background: linear-gradient(90deg, #26a69a, #0288d1);
+  color: #ffffff;
+}
+
+.kartya .btn:hover::before {
+  left: 100%;
+}
+
+.kartya .btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 10px rgba(2, 136, 209, 0.5);
+}
+
+@media (max-width: 768px) {
+  .baloldal {
+    padding: 15px;
+  }
+
+  .szekcio2 {
+    justify-content: flex-start;
+    padding: 20px;
+  }
+
+  .szekcio2 > div {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    width: 100%;
+  }
+
+  .szekcio2 > div:last-child {
+    border-bottom: none;
+  }
+
+  .szekcio2 h1 {
+    font-size: 2rem;
+  }
+
+  .szekcio2 h2 {
+    font-size: 1.2rem;
+  }
+
+  .szekcio2 h3 {
+    font-size: 1.5rem;
+  }
+
+  .kiemelt {
+    font-size: 20px;
+    padding: 5px;
+  }
+
+  .info img {
+    height: 20px;
+  }
+
+  .jobboldal {
+    max-width: 100%;
+    margin: 10px 0;
+  }
+
+  .doboz1 {
+    flex-direction: row;
+    height: auto;
+    padding: 10px;
+    justify-content: space-between;
+  }
+
+  .doboz1 img {
+    max-width: 40px;
+  }
+
+  .cim {
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+  }
+
+  .kartya {
+    flex-direction: column;
+    height: auto;
+    padding: 15px;
+    width: 100%;
+  }
+
+  .adat_bal {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .adat_jobb {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .adat_jobb .col-12 {
+    margin-bottom: 10px;
+  }
+
+  .kartya h2 {
+    font-size: 1.5rem;
+  }
+
+  .kartya .btn {
+    width: 100%;
+    font-size: 18px;
+    padding: 8px;
+  }
+
+  .azonositoszo {
+    font-size: 22px;
+  }
+
+  .azonosito {
+    font-size: 22px;
+  }
+
+  .datum {
+    font-size: 20px;
+  }
+
+  .kartyak {
+    height: 70vh;
+  }
+}
+
+
+/* Kuponkezelő stílusa és animációk */
+.kupon-kezelo {
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.6);
+  margin-bottom: 5px;
+  
+ 
+}
+
+.kupon-inputok {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 10px;
+  width: 650px;
+}
+
+.kupon-inputok input.form-control {
+  padding: 10px;
+  font-size: 18px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.kupon-inputok input.form-control:focus {
+  border-color: #0288d1;
+  box-shadow: 0 4px 12px rgba(2, 136, 209, 0.4);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.kupon-inputok input.form-control::placeholder {
+  color: #999;
+  transition: opacity 0.3s ease;
+}
+
+.kupon-inputok input.form-control:focus::placeholder {
+  opacity: 0.5;
+}
+
+#kupon-letrehozas.btn {
+  position: relative;
+  width: 300px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  background: linear-gradient(90deg, #023551, #156c95);
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0 4px 15px rgba(0, 36, 55, 0.5);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  z-index: 1;
+}
+
+#kupon-letrehozas.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(2, 136, 209, 0.7);
+  background: linear-gradient(90deg, #26a69a, #0288d1);
+}
+
+#kupon-letrehozas.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: all 0.5s ease;
+  z-index: -1;
+}
+
+#kupon-letrehozas.btn:hover::before {
+  left: 100%;
+}
+
+#kupon-letrehozas.btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 10px rgba(2, 136, 209, 0.5);
+}
+
+.kupon-lista {
+  max-height: 115px;
+  overflow-y: scroll;
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.kupon-kartya {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  transition: background-color 0.3s ease;
+}
+
+.kupon-kartya:hover {
+  background-color: #f5f5f5;
+}
+
+.kupon-kartya:last-child {
+  border-bottom: none;
+}
+
+.torles-btn {
+  background: linear-gradient(90deg, #ff4444, #cc0000);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 5px 15px;
+  font-size: 18px;
+  transition: all 0.3s ease;
+}
+
+.torles-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(255, 0, 0, 0.5);
+}
+
+/* Reszponzív módosítások a kuponkezelőhöz */
+@media (max-width: 768px) {
+  .kupon-kezelo {
+    padding: 15px; /* Kisebb padding kis nézetben */
+  }
+
+  .kupon-inputok {
+    flex-direction: column; /* Függőleges elrendezés */
+    width: 100%; /* Teljes szélesség */
+    gap: 15px; /* Nagyobb távolság az elemek között */
+  }
+
+  .kupon-inputok input.form-control {
+    width: 100%; /* Inputok teljes szélessége */
+    font-size: 16px; /* Kicsit kisebb betűméret */
+  }
+
+  #kupon-letrehozas.btn {
+    width: 100%; /* Gomb teljes szélessége */
+    font-size: 16px; /* Kicsit kisebb betűméret */
+    padding: 12px; /* Kényelmesebb magasság */
+  }
+
+  .kupon-lista {
+    max-height: 25vh; /* Kicsit kisebb magasság, hogy elférjen */
+  }
+
+  .kupon-kartya {
+    font-size: 16px; /* Kicsit kisebb betűméret */
+  }
+
+  .torles-btn {
+    font-size: 16px; /* Kicsit kisebb betűméret */
+    padding: 5px 12px; /* Kisebb padding */
+  }
+}

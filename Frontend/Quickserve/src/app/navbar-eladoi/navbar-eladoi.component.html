@@ -1,0 +1,41 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+  
+      <img src="logo.png" alt="" id="logo">
+  
+      <button class="navbar-toggler" type="button" (click)="isNavbarCollapsed = !isNavbarCollapsed"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav" style="justify-content: space-between"
+        [ngbCollapse]="isNavbarCollapsed">
+        <ul class="navbar-nav ml-3">
+          <a class="nav-link" href="/">
+            <li class="nav-item"><img src="home.png" alt="">Főoldal</li>
+          </a>
+  
+          <a href="" class="nav-link" href="eladoi">
+            <li class="nav-item"><img src="shop.png" alt="">Eladói oldal</li>
+          </a>
+          <a href="" class="nav-link" (click)="kijelentkezes()">
+            <li class="nav-item"><img src="door.png" alt="">Kilépés</li>
+          </a>
+        </ul>
+  
+  
+        <div id="jobboldal">
+          <div id="Kilépés">
+            <img src="" alt="">
+          </div>
+  
+  
+  
+  
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

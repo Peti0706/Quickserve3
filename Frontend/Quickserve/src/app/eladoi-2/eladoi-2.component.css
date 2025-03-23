@@ -1,0 +1,326 @@
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: 0.5px;
+  text-shadow: 0px 0px 10px rgb(254, 190, 95);
+}
+
+h2 {
+  font-size: 25px;
+  margin-top: 15px;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin: 0;
+  font-weight: bold;
+}
+
+.azonositoesstatusz{
+  display: flex;
+  box-shadow: 0px 0px 10px gray;
+  background-color: #dce3e5;
+  background-image: linear-gradient(180deg, #dce3e5 0%, #eaeaf1 100%);
+  border-radius: 10px;
+  padding: 20px;
+  flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+}
+
+p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+#logo {
+  max-width: 15vh;
+  max-height: 13vh;
+  margin-left: 10px;
+}
+
+#navbar {
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(18,91,174,1) 100%);
+  height: 8vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.szekcio {
+  margin-bottom: 20px; 
+}
+
+.uzenet {
+  background: linear-gradient(90deg, #ffcc00, #ff9500);
+  padding: 15px;
+  
+  border-radius: 8px;
+  box-shadow: 0px -2px 10px 3px rgba(1, 30, 56, 0.773);
+}
+
+.uzenet img {
+  max-width: 40px;
+}
+
+.rendelo_adatai-div {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 0px 10px gray;
+  background-color: #dce3e5;
+  background-image: linear-gradient(180deg, #dce3e5 0%, #eaeaf1 100%);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+}
+
+.adat {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+  padding-top: 5px;
+}
+
+.adat img {
+  max-width: 32px;
+  margin-right: 10px;
+}
+
+.adat p {
+  font-size: 1.5rem;
+  font-family: "Outfit", sans-serif;
+  font-weight: 300;
+  border-left: 2px solid #8b560b;
+  padding-left: 5px;
+}
+
+.adatok{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.funkciok {
+  background-color: #dce3e5;
+  background-image: linear-gradient(180deg, #dce3e5 0%, #eaeaf1 100%);
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgb(36, 36, 36);
+  padding: 20px 0px 20px 20px;
+}
+
+.gombok {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 100%;
+}
+
+.gombok .btn {
+  position: relative;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  z-index: 1;
+  font-size: 1.2rem;
+  height: 50px;
+  border-radius: 20px 0 0 20px;
+  background: linear-gradient(90deg, #094e73, #55a4c9);
+  color: white;
+  letter-spacing: 2px;
+  box-shadow: 0px 0px 5px black;
+  border: none;
+  margin: 10px 0;
+}
+
+.gombok .btn::before {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: all 0.5s ease;
+  z-index: -1;
+  content: '';
+  position: absolute;
+}
+
+.gombok .btn:hover {
+  transform: scale(1.05);
+  border-right: 7px solid white;
+  font-weight: bold;
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(2, 136, 209, 0.7);
+  background: linear-gradient(90deg, #26a69a, #0288d1);
+  color: #ffffff;
+}
+
+.gombok .btn::after {
+  box-shadow: 0 6px 20px rgba(2, 136, 209, 0.7);
+  background: linear-gradient(90deg, #26a69a, #0288d1);
+}
+
+.gombok .btn:hover::before {
+  left: 100%;
+}
+
+.gombok .btn:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 10px rgba(2, 136, 209, 0.5);
+}
+
+.gombok .btn:focus {
+  background-color: #dbac34;
+  color: white;
+}
+
+.rendeles {
+  background-color: #dce3e5;
+  background-image: linear-gradient(180deg, #dce3e5 0%, #eaeaf1 100%);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px -1px 10px 2px rgba(0, 0, 0, 0.773);
+}
+
+.termekeksorai .card {
+  border: none;
+  border-radius: 10px;
+  background-color: #fff;
+  
+  max-width: 95%;
+  
+  margin: 0 auto;
+}
+
+.termekhatter {
+  transition: transform 0.2s ease;
+}
+
+.termekhatter:hover {
+  transform: translateY(-5px);
+}
+
+.kep {
+  max-height: 90px;
+  max-width: auto;
+  padding-right: 17px;
+  margin: 5px;
+}
+
+.termeknev {
+  font-size: 1.5rem;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 1px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #2D3142;
+}
+
+.d-flex {
+  font-size: 0.9rem;
+}
+
+.cikkszam {
+  font-size: 18px;
+  padding-top: 5px;
+}
+
+.total.price {
+  font-weight: bold;
+  color: #1a5f9b;
+  font-size: 20px;
+
+    margin-top: -15px; /* Távolság a cikkszám és az ár között */
+
+}
+
+.osszesito {
+  margin-top: 20px;
+  padding: 15px;
+  background: linear-gradient(90deg, #094e73, #55a4c9);
+  border-radius: 8px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  
+}
+
+.osszesito div{
+  margin: 10px;
+}
+
+.osszesito h1 {
+  font-size: 1.5rem;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.osszesito h2 {
+  font-size: 1.75rem;
+  color: #ffffff;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.btn-danger {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-danger:hover {
+  transform: scale(1.1) rotate(3deg);
+  box-shadow: 0 6px 20px rgba(255, 0, 0, 0.5);
+}
+
+.btn-danger::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: all 0.5s ease;
+}
+
+.btn-danger:hover::before {
+  left: 100%;
+}
+
+/* Reszponzív finomhangolás */
+@media (max-width: 768px) {
+  .col-3 {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .col-9 {
+    text-align: center;
+  }
+
+  .d-flex {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .total.price {
+    margin-top: 5px;
+  }
+
+  .termekeksorai .card {
+    max-width: 100%;
+  }
+
+  .kep {
+    max-width: 120px; /* Fix méret kis nézetben, hogy ne zsugorodjon túlzottan */
+  }
+  .osszesito{
+    flex-direction: column;
+  }
+}

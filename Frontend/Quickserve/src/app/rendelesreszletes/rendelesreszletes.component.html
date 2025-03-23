@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kosár</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+
+</head>
+
+<body style="background-color: rgba(0, 0, 0, 0)">
+  <video [autoplay]="true" [muted]="true" [loop]="true" class="bg-video">
+    <source src="kajasvideo.mp4" type="video/mp4">
+  </video>
+
+  <!-- Navigációs sáv -->
+
+  <app-navbar></app-navbar>
+  <div class="container mt-5 mb-5">
+    <div id="fokeret">
+
+      <div class="row">
+        <div class="col-md-12 keret adatok p-4 shadow ">
+          <div class="container mt-5 ">
+            <h2 class="mb-4">RENDELÉS: <span class="azonosito">#{{Rendelesadatok[0].Megrendeles_ID}}</span></h2>
+            <h5 class="mb-4"><span class="kiscimek">Dátum:</span> {{Rendelesadatok[0].datum | date: 'yyyy-MM-dd HH:mm'}}</h5>
+            <h5 class="mb-4"><span class="kiscimek">Státusz:</span> {{Rendelesadatok[0].Statusz}}</h5>
+            <h5 class="mb-4"><span class="kiscimek">Átvehető:</span> {{Rendelesadatok[0].szunet}}. szünet</h5>
+            <div class="row">
+
+              <div class="col-12 col-md-6 mb-3" *ngFor="let adat of Rendelesadatok">
+                <div class="card p-3 shadow termekhatter">
+                  <div class="row align-items-center">
+                    <div class="col-4">
+                      <img alt="topjoy image" class="img-fluid" [src]="adat.Kepurl" />
+                    </div>
+                    <div class="col-8">
+                      <h5>{{adat.termeknev}}</h5>
+                      <h6>{{adat.tipus}}</h6>
+                      <div class="d-flex justify-content-between">
+                        <div class="quantity-control">
+
+                          <input type="text" value="{{adat.mennyiseg}}" class="quantity" disabled />
+
+                        </div>
+                        <span class="total price" data-price="450">{{adat.egysegar}} FT</span>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+            <div class="summary mt-4">
+              <h5>Rendelés összesítő</h5>
+              <div class="d-flex justify-content-between">
+                <span class="osszesitoszoveg">Nettó ár</span>
+                <span id="netto" class="osszesitoszoveg">{{Nettoosszeg}} FT</span>
+              </div>
+              <div class="d-flex justify-content-between">
+                <span class="osszesitoszoveg">Áfa 27%</span>
+                <span id="vat" class="osszesitoszoveg">{{Adoosszeg}} FT</span>
+              </div>
+              <div class="d-flex justify-content-between mt-3">
+                <strong style="font-size: 23px; color: #ed8608;">Összesen</strong>
+                <strong id="total" style="font-size: 23px; color: #ed8608;">{{teljesOsszeg[0].Osszeg}} FT</strong>
+              </div>
+              <div class="d-flex justify-content-between mt-3">
+                <strong  style="font-size: 26px; color: #ed8608;" *ngIf="Osszeg != Kedvezmenyesosszeg">Kedvezményes végösszeg ({{ Kedvezmeny }}% kedvezménnyel):</strong>
+                <strong id="total" style="font-size: 26px; color: #ed8608;" *ngIf="Osszeg != Kedvezmenyesosszeg"> {{ Kedvezmenyesosszeg }} Ft</strong>          
+            </div>
+              <a href="rendeleseim"><button class="btn mt-3">Vissza</button></a>
+            </div>
+
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eladó-rendelések</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+
+<body>
+    <app-navbar-eladoi></app-navbar-eladoi>
+
+    <div class="container-fluid">
+        <div class="uzenet text-center my-4">
+            <img src="clock.png" alt="" class="img-fluid">
+            <h1>Új megrendelés érkezett!</h1>
+            <h2>Kérjük tekintse át a megrendelés részleteit és adjon visszajelzést a vásárlónak!</h2>
+            <br>
+            <h3>Rendelés dátuma: {{Termekek[0].datum | date: 'yyyy-MM-dd HH:mm'}}</h3>
+        </div>
+        <br>
+        <div class="szekcio">
+            <div class="row sor1 justify-content-center">
+                <div class="col-12 col-md-6 col-lg-3 baloldal mb-3">
+                    <div class="rendelo_adatai-div h-100">
+                        <h1>Megrendelő adatai:</h1>
+                        <div class="adatok">
+                            <div class="adat">
+                                <img src="user2.png" alt="" class="">
+                                <p>{{Rendeloadatai[0].nev}}</p>
+                            </div>
+                            <div class="adat">
+                                <img src="email.png" alt="">
+                                <p>{{Rendeloadatai[0].email}}</p>
+                            </div>
+                            <div class="adat">
+                                <img src="cell-phone.png" alt="">
+                                <p>{{Rendeloadatai[0].telefonszam}}</p>
+                            </div>
+                            <div class="adat">
+                                <img src="class.png" alt="">
+                                <p>{{Rendeloadatai[0].Osztaly}}. osztály</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="col-12 col-lg-2 mb-3 col-md-6">
+                    <div class="azonositoesstatusz">
+                        <div>
+                            <h2 style="color: black; padding-top: 10px;">Azonosító:</h2>
+                            <h2 style="color: #0160a4; font-weight: bold;">#{{Rendeloadatai[0].Megrendeles_ID}}</h2>
+                        </div>
+                        <div>
+                            <h2 style="color: black; padding-top: 10px;">Státusz:</h2>
+                            <h2 style="color: #0160a4; font-weight: bold; ">{{Statusz}}</h2>
+                        </div>
+                        <div>
+                            <h2 style="color: black; padding-top: 10px;">Módosítás dátuma:</h2>
+                            <h2 style="color: #0160a4; font-weight: bold; ">{{Modositas_datuma | date: 'yyyy-MM-dd HH:mm'}}</h2>
+                        </div>
+                        <div>
+                            <h2 style="color: black; padding-top: 10px;">Szünet:</h2>
+                            <h2 style="color: #0160a4; font-weight: bold; ">{{Szunet}}. szünet</h2>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-12 col-md-6 col-lg-2 jobboldal mb-3">
+                    <div class="funkciok h-100">
+                        <div class="gombok">
+                            <div><button class="btn btn-block" (click)="statuszmodositas('Elfogadva')">Elfogad</button>
+                            </div>
+                            <div><button class="btn btn-block"
+                                    (click)="statuszmodositas('Elutasítva')">Elutasít</button></div>
+                            <div><button class="btn btn-block" (click)="statuszmodositas('Átvehető')">Átvehető</button>
+                            </div>
+                            <div><button class="btn btn-block"
+                                    (click)="statuszmodositas('Teljesítve')">Teljesítve</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+            <br>
+            <div class="row sor2 justify-content-center">
+                <div class="col-12 col-lg-9 mb-3">
+                    <div class="rendelesek-div">
+                        <div class="rendeles">
+                            <h2 style="letter-spacing: 2px; padding-bottom: 10px; font-size: 26px;">Termékek</h2>
+
+                            <div class="row termekeksorai" *ngFor="let termek of Termekek">
+                                <!-- Topjoy -->
+                                <div class="col-12 mb-3">
+                                    <div class="card shadow termekhatter">
+                                        <div class="row align-items-center px-3">
+                                            <div class="col-lg-1 col-3" style="margin: 0px;">
+                                                <img [src]="termek.kepurl" alt="topjoy image" class="img-fluid kep" />
+                                            </div>
+                                            <div class="col-lg-11 col-9">
+                                                <h5 class="termeknev">{{termek.termeknev}} - {{termek.tipus}}</h5>
+                                                <div class="d-flex justify-content-between">
+                                                    <span class="cikkszam">Cikkszám: {{termek.cikkszam}} | Mennyiség:
+                                                        {{termek.mennyiseg}} | Kategória: {{termek.kategoria}} |
+                                                        Egységár: {{termek.egysegar}}</span>
+                                                    <span class="total price">{{termek.Osszeg}} FT</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Kitkat -->
+
+
+                            </div>
+                            <div class="osszesito text-center mt-4 ">
+                                <div>
+                                    <h1>Összesen:</h1>
+                                    <h2>{{Osszeg}} FT</h2>
+                                </div>
+                                <div *ngIf="Osszeg != KedvezmenyesOsszeg">
+                                    <h1>Kedvezményesen:</h1>
+                                    <h2>{{KedvezmenyesOsszeg}} FT</h2>
+                                </div>
+                                <div *ngIf="Osszeg != KedvezmenyesOsszeg">
+                                    <h1>Felhasznált kuponkód:</h1>
+                                    <h2>{{Kuponkod}}</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <a href="eladoi"><button class="btn btn-lg btn-danger">Vissza</button></a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

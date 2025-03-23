@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+
+
+	<title>Bejelentkezés - eladói</title>
+</head>
+
+<body>
+
+	<div class="container" id="container" [class.right-panel-active]="isRightPanelActive">
+		<div class="form-container sign-up-container">
+			<form action="">
+				<h1>Készíts egy fiókot!</h1>
+
+
+				<input type="text" placeholder="Név" name="regNev" [(ngModel)]="regNev" />
+				<input type="text" placeholder="Email" name="regEmail" [(ngModel)]="regEmail" />
+                <input type="tel" placeholder="Telefonszám" name="regTelefonszam" [(ngModel)]="regTelefonszam" />
+                <input type="text" placeholder="Nyitvatartás" name="regNyitvatartas" [(ngModel)]="regNyitvatartas"/>
+				<input type="password" placeholder="Jelszó" name="regJelszo" [(ngModel)]="regJelszo" /><br>
+				<button (click)="register()">Regisztrálás</button>
+				<p *ngIf="errorMessage2" class="error-message">{{ errorMessage }}</p>
+			</form>
+		</div>
+		<div class="form-container sign-in-container">
+			<form action="">
+				<h1>Bejelentkezés</h1>
+
+
+				<input type="text" placeholder="Név" name="nev" [(ngModel)]="nev" />
+				<input type="password" placeholder="Jelszó" name="password" [(ngModel)]="password" />
+				<br>
+				<button (click)="login()">Bejelentkezés</button>
+				<p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+			</form>
+		</div>
+		<div class="overlay-container">
+			<div class="overlay">
+				<div class="overlay-panel overlay-left">
+					<h1>Hello!</h1>
+					<p>Kérjük, jelentkezzen be személyes adataival</p>
+					<button class="ghost" id="signIn" (click)="onSignIn()">Bejelentkezés</button>
+				</div>
+				<div class="overlay-panel overlay-right">
+					<h1>Hello!</h1>
+					<p>Adja meg személyes adatait a regisztrációhoz</p><br>
+					<button class="ghost" id="signUp" (click)="onSignUp()"> Regisztrálás</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+       
+</body>
+
+</html>
