@@ -10,11 +10,11 @@ export class KosarService {
     this.cartItemsSubject.next(this.cartItems);
    }
 
-  private cartItems: any[] = []; // A kosárban lévő termékek tömbje
+  private cartItems: any[] = []; 
   private cartItemsSubject = new BehaviorSubject<any[]>([]); // Observable a változások követéséhez
   private storageKey = 'cartItems'
 
-  // Termék hozzáadása a kosárhoz
+
   
 
   private loadFromLocalStorage() {
@@ -86,13 +86,13 @@ export class KosarService {
 
   getNetPrice(): number {
     const totalPrice = this.getTotalPrice();
-    return Math.round(totalPrice / 1.27); // Nettó ár = Bruttó / 1.27, kerekítve
+    return Math.round(totalPrice / 1.27); 
   }
 
   getVatAmount(): number {
     const totalPrice = this.getTotalPrice();
     const netPrice = this.getNetPrice();
-    return totalPrice - netPrice; // ÁFA = Bruttó - Nettó
+    return totalPrice - netPrice; 
   }
 
   clearCart() {

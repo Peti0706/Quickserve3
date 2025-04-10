@@ -15,7 +15,7 @@ constructor(private profilService:ProfilService,private kosarservice:KosarServic
 Felhasznaloemail:string = null;
 Felhasznalo: any = {};
 Kosar:any[]=[];
-public orderSuccessMessage: string | null = null; // Sikeres rendelés üzenete
+public orderSuccessMessage: string | null = null;
   public orderErrorMessage: string | null = null;
   public selectedSzunet: number | null = null;
   public selectedPaymentMethod: string = 'Készpénz';
@@ -39,7 +39,7 @@ getfelhasznaloemail():string{
 getKosar():void{
   this.kosarservice.getCartItems().subscribe(items => {
     this.Kosar = items;
-    console.log(items); // Frissítjük a kosár tartalmát
+    console.log(items);
   });
 }
 

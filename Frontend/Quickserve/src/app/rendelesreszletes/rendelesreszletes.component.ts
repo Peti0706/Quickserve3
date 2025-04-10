@@ -46,7 +46,7 @@ getteljesosszeg(){
 }
 
 getRendelesReszletek() {
-  const token = localStorage.getItem('token'); // Feltételezve, hogy a token localStorage-ban van
+  const token = localStorage.getItem('token'); 
   this.http.get<any[]>(`http://localhost:3000/userorders/details/${this.rendelesId}`, {
     headers: { Authorization: `${token}` }
   }).subscribe(data =>{
@@ -55,7 +55,7 @@ getRendelesReszletek() {
   });
 }
 
- // Alapértelmezett érték
+
   
 
 

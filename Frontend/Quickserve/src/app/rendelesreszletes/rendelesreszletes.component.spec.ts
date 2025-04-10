@@ -37,7 +37,7 @@ describe('RendelesreszletesComponent', () => {
   });
 
   afterEach(() => {
-    // Tisztítás: mockok visszaállítása
+    // mockok visszaállítása
     jest.restoreAllMocks();
   });
 
