@@ -1,9 +1,9 @@
-// login.test.js
+
 const request = require('supertest');
-const app = require('./server'); // Az Express app fájlod elérési útja
+const app = require('./server');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const db = require('./database'); // Az adatbázis modulod elérési útja
+const db = require('./database'); 
 
 // Mockoljuk az adatbázis és a bcrypt függvényeket
 jest.mock('./database', () => ({
@@ -31,10 +31,10 @@ describe('POST /login', () => {
       callback(null, [mockUser]);
     });
 
-    // Mock bcrypt.compare
+    // Mock helyes jelszó
     bcrypt.compare.mockResolvedValue(true);
 
-    // Mock JWT (opcionális, ha nem akarod ellenőrizni a token tartalmát)
+   
     jest.spyOn(jwt, 'sign').mockReturnValue('mockedToken');
 
     const response = await request(app)
@@ -55,7 +55,7 @@ describe('POST /login', () => {
   });
 
   it('400-as hibakóddal kellene visszatérnie ha a felhasználónév helytelen', async () => {
-    // Mock adatbázis válasz: üres eredmény
+    // üres eredmény
     db.query.mockImplementation((sql, params, callback) => {
       callback(null, []);
     });
@@ -68,7 +68,7 @@ describe('POST /login', () => {
     expect(response.body).toEqual({ error: 'Hibás név vagy jelszó' });
   });
 
-  it('should return 400 if password is incorrect', async () => {
+  it('400-as hibakódot kellene visszakapnia, ha a jelszó helytelen', async () => {
     const mockUser = {
       Vasarlo_ID: 1,
       Nev: 'TesztUser',
@@ -79,7 +79,7 @@ describe('POST /login', () => {
       callback(null, [mockUser]);
     });
 
-    // Mock bcrypt.compare: hibás jelszó
+    // Mock hibás jelszó
     bcrypt.compare.mockResolvedValue(false);
 
     const response = await request(app)

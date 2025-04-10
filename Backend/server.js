@@ -231,7 +231,7 @@ db.query(query,[Statusz,rendelesid],(err,results)=>{
   sendStatuszChange(Statusz, Megrendelo_email,rendelesid, (emailErr) => {
     if (emailErr) {
       console.error('Hiba az email küldésekor:', emailErr);
-      // Nem szakítjuk meg a választ, csak logoljuk a hibát
+      
     }
     res.json({ message: "A rendelés állapotát sikeresen frissítettük!" });
   });
@@ -404,8 +404,8 @@ app.get('/api/kedvencek', (req, res) => {
         console.error('Hiba:', err);
         return res.status(500).json({ error: "Hiba az adatok lekérdezésekor" });
       }
-      console.log('Results from DB:', results); // Debug
-      const kedvencIds = results.map(row => row.Cikkszam); // Tömb számokkal
+      
+      const kedvencIds = results.map(row => row.Cikkszam); 
       res.json(kedvencIds);
     });
   });
@@ -457,7 +457,7 @@ app.delete('/api/kedvencek/:productId', (req, res) => {
 
 //Kuponkód ellenőrzés
 app.post("/checkcoupon", (req, res) => {
-  const { couponCode } = req.body; // A frontendről érkező kuponkód
+  const { couponCode } = req.body; 
 
   const sql = "SELECT Arengedmeny,Kuponkod FROM kuponok WHERE Kuponkod = ?";
   db.query(sql, [couponCode], (err, results) => {
@@ -473,7 +473,7 @@ app.post("/checkcoupon", (req, res) => {
     const discount = results[0].Arengedmeny;
     const discountcode = results[0].Kuponkod;
     
-    res.json({ discount, discountcode}); // Visszaadjuk a kedvezményt
+    res.json({ discount, discountcode});
   });
 });
 
@@ -498,7 +498,7 @@ app.post("/sendorder", (req, res) => {
   
     db.query(sql2, [items[0].Megrendeles_ID], (err2, results2) => {
       if (err2) {
-        console.error("SQL hiba a rendelés állapot rögzítésekor:", err2); 
+        
         return res.status(500).json({ error: "Hiba a rendelés állapot rögzítésekor" });
       }
     
@@ -518,7 +518,7 @@ app.post("/sendorder", (req, res) => {
       sendOrderConfirmation(orderDetails, decoded.Email, (emailErr) => {
         if (emailErr) {
           
-          // Nem szakítjuk meg a választ, csak logoljuk a hibát
+         
         }
         res.json({ message: "A rendelést és az állapotot sikeresen rögzítettük, visszaigazolás elküldve!" });
       });
@@ -544,7 +544,7 @@ module.exports = app;
 
 if (require.main === module) {
   app.listen(3000, () => {
-    console.log('Server running on port 3000');
+    console.log('A szerver fut a 3000-es porton!');
   });
 }
 

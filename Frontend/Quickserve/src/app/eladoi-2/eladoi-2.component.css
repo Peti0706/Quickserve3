@@ -295,6 +295,9 @@ p {
 
 /* Reszponzív finomhangolás */
 @media (max-width: 768px) {
+  .adat{
+    overflow-x: scroll;
+  }
   .col-3 {
     text-align: center;
     margin-bottom: 10px;

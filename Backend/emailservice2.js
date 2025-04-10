@@ -2,16 +2,16 @@ const nodemailer = require('nodemailer');
 
 // Email küldés konfigurációja
 const transporter = nodemailer.createTransport({
-    service: 'gmail', // Használhatsz mást is, pl. SendGrid, Mailgun stb.
+    service: 'gmail',
     auth: {
-        user: 'quickserveprojekt2025@gmail.com', // A te email címed
-        pass: 'xwjb zuzc emvm xykd'   // Gmail esetén alkalmazás-specifikus jelszó kell
+        user: 'quickserveprojekt2025@gmail.com', 
+        pass: 'xwjb zuzc emvm xykd'  
     }
 });
 
-// Email küldő függvény
+
 const sendStatuszChange = (Statusz, Megrendelo_email,rendelesid,callback) => {
-    const mailOptions = {
+    const emailadatok = {
       from: 'quickserveprojekt2025@gmail.com',
       to: Megrendelo_email,
       subject: 'Rendelésed státusza megváltozott',
@@ -146,7 +146,7 @@ const sendStatuszChange = (Statusz, Megrendelo_email,rendelesid,callback) => {
       `
     };
 
-    transporter.sendMail(mailOptions, (error, info) => {
+    transporter.sendMail(emailadatok, (error, info) => {
         if (error) {
           console.error('Hiba az email küldésekor:', error);
           return callback(error);

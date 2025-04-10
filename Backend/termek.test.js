@@ -1,19 +1,19 @@
-// app.test.js
+
 const request = require('supertest');
 const express = require('express');
-const db = require('./database'); // feltételezem, hogy van egy db modulod
+const db = require('./database'); 
 const app = require('./server');
 
 
 
 
-// Mockoljuk a db modult
+
 jest.mock('./database');
 
 describe('GET /products', () => {
   
   // Sikeres válasz tesztelése
-  it('should return products when database query succeeds', async () => {
+  it('termékeket kellene visszakapnia, ha az adatbázis-lekérdezés sikeres', async () => {
     const mockProducts = [
       { id: 1, name: 'Termék 1' },
       { id: 2, name: 'Termék 2' }
@@ -32,8 +32,8 @@ describe('GET /products', () => {
     expect(response.body).toEqual(mockProducts);
   });
 
-  // Hiba esetén tesztelése
-  it('should return 500 when database query fails', async () => {
+
+  it('500-as hibakódot kellene visszakapnia, ha az adatbázis-lekérdezés sikertelen', async () => {
     // Mockoljuk a db.query-t hibával
     db.query.mockImplementation((query, callback) => {
       callback(new Error('Database error'), null);
@@ -47,7 +47,7 @@ describe('GET /products', () => {
     expect(response.body).toEqual({ error: 'Hiba a termékek lekérdezésekor' });
   });
 
-  // Teardown: mock visszaállítása minden teszt után
+  // visszaállítása minden teszt után
   afterEach(() => {
     jest.clearAllMocks();
   });

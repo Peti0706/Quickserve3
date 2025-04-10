@@ -12,20 +12,14 @@ export class RendelesreszletesComponent implements OnInit {
 constructor(private profilService: ProfilService,private route: ActivatedRoute,private http:HttpClient) { }
 rendelesId!: number;
 Rendelesadatok:any[]=[];
-
 teljesOsszeg: number;
 Osszeg:number;
 Kedvezmenyesosszeg:number;
 Kedvezmeny:number;
-getRendelesReszletek() {
-  const token = localStorage.getItem('token'); // Feltételezve, hogy a token localStorage-ban van
-  this.http.get<any[]>(`http://localhost:3000/userorders/details/${this.rendelesId}`, {
-    headers: { Authorization: `${token}` }
-  }).subscribe(data =>{
-    this.Rendelesadatok = data;
-    console.log(this.Rendelesadatok);
-  });
-}
+Nettoosszeg: number 
+Adoosszeg: number 
+ 
+
 
 getteljesosszeg(){
   const token = localStorage.getItem('token');
@@ -36,9 +30,7 @@ getteljesosszeg(){
     this.Osszeg=this.teljesOsszeg[0].Osszeg;
     this.Kedvezmenyesosszeg=this.teljesOsszeg[0].Kedvezmenyes_osszeg;
     this.Kedvezmeny=this.teljesOsszeg[0].Kedvezmeny;
-    console.log(this.teljesOsszeg);
-    console.log(this.Kedvezmenyesosszeg);
-   
+ 
     if (this.Osszeg && this.Osszeg > 0) {
       // 27% ÁFA számítás: bruttó / 1.27 = nettó
       this.Nettoosszeg = Math.round(this.Osszeg / 1.27);
@@ -50,16 +42,21 @@ getteljesosszeg(){
       this.Adoosszeg = null;
     }
     
-   
-  
+  });
+}
+
+getRendelesReszletek() {
+  const token = localStorage.getItem('token'); // Feltételezve, hogy a token localStorage-ban van
+  this.http.get<any[]>(`http://localhost:3000/userorders/details/${this.rendelesId}`, {
+    headers: { Authorization: `${token}` }
+  }).subscribe(data =>{
+    this.Rendelesadatok = data;
+    console.log(this.Rendelesadatok);
   });
 }
 
  // Alapértelmezett érték
-  Nettoosszeg: number 
-  Adoosszeg: number 
- 
-
+  
 
 
 

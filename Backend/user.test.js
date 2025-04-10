@@ -1,6 +1,6 @@
-// user.test.js
+
 const request = require('supertest');
-const app = require('./server'); // Az Express app elérési útja
+const app = require('./server'); 
 const jwt = require('jsonwebtoken');
 
 // Mockoljuk a jwt.verify függvényt
@@ -17,7 +17,7 @@ describe('GET /user', () => {
     jest.clearAllMocks();
   });
   afterAll(() => {
-    require('./database').end(); // Valódi kapcsolat lezárása, ha nem mockolod
+    require('./database').end();
   });
 
   it('401 hibakóddal kellene visszatérjen ha nem adtak meg tokent', async () => {

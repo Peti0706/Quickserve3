@@ -1,8 +1,8 @@
-// server.test.js
+
 const request = require('supertest');
 const express = require('express');
 const jwt = require('jsonwebtoken');
-const db = require('./database'); // az általad megadott database modul
+const db = require('./database');
 const app=require("./server");
 
 
@@ -15,7 +15,7 @@ jest.mock('jsonwebtoken');
 describe('DELETE /admin/kuponok/:kuponid', () => {
   
   // Sikeres törlés tesztelése érvényes tokennel
-  it('should delete coupon with valid token', async () => {
+  it('törölnie kellene a kupont érvényes tokennel', async () => {
     const kuponid = "1";
     const validToken = 'valid-token';
 
@@ -40,7 +40,7 @@ describe('DELETE /admin/kuponok/:kuponid', () => {
   });
 
   // Hiányzó token tesztelése
-  it('should return 401 when no token is provided', async () => {
+  it('401-es hibakódot kellene visszaadnia, ha nincs token megadva', async () => {
     const kuponid = 1;
 
     const response = await request(app)
@@ -52,7 +52,7 @@ describe('DELETE /admin/kuponok/:kuponid', () => {
   });
 
   // Érvénytelen token tesztelése
-  it('should return 403 when token is invalid', async () => {
+  it('403-as hibakódot kellene visszaadnia, ha a token érvénytelen', async () => {
     const kuponid = 1;
     const invalidToken = 'invalid-token';
 
@@ -71,7 +71,7 @@ describe('DELETE /admin/kuponok/:kuponid', () => {
   });
 
   // Adatbázis hiba tesztelése
-  it('should return 500 when database query fails', async () => {
+  it('500-as hibakódot kellene visszaadnia, ha az adatbázis-lekérdezés sikertelen', async () => {
     const kuponid = 1;
     const validToken = 'valid-token';
 
@@ -94,7 +94,7 @@ describe('DELETE /admin/kuponok/:kuponid', () => {
     expect(response.body).toEqual({ error: 'Hiba az adatok lekérdezésekor' });
   });
 
-  // Teardown: mock visszaállítása minden teszt után
+  // mock visszaállítása minden teszt után
   afterEach(() => {
     jest.clearAllMocks();
   });

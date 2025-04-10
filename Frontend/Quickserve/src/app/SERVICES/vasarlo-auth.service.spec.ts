@@ -38,7 +38,7 @@ describe('VasarloAuthService', () => {
   });
 
   describe('register', () => {
-    it('should send a POST request to register', () => {
+    it('POST kérést kellene küldenie a regisztrációhoz.', () => {
       const dummyVasarlo = { name: 'Teszt', email: 'teszt@example.com', password: 'jelszo' };
       const dummyResponse = { success: true };
 
@@ -54,7 +54,7 @@ describe('VasarloAuthService', () => {
   });
 
   describe('login', () => {
-    it('should send a POST request to login', () => {
+    it('POST kérést kellene küldenie a bejelentkezéshez.', () => {
       const dummyVasarlo = { email: 'teszt@example.com', password: 'jelszo' };
       const dummyResponse = { token: 'fake-token' };
 
@@ -70,7 +70,7 @@ describe('VasarloAuthService', () => {
   });
 
   describe('logout', () => {
-    it('should remove token from localStorage', () => {
+    it('El kellene távolítania a tokent a localStorage-ból', () => {
       mockLocalStorage.setItem('token', 'fake-token');
       service.logout();
       expect(mockLocalStorage.getItem('token')).toBeNull();
@@ -78,13 +78,13 @@ describe('VasarloAuthService', () => {
   });
 
   describe('getvasarlo', () => {
-    it('should return null if no token is present', () => {
+    it('Null-t kellene visszaadnia, ha nincs jelen token', () => {
       mockLocalStorage.removeItem('token');
       const result = service.getvasarlo();
       expect(result).toBeNull();
     });
 
-    it('should send a GET request to get user if token is present', () => {
+    it('GET kérést kellene küldenie a felhasználó lekérdezéséhez, ha a token jelen van', () => {
       const dummyToken = 'fake-token';
       const dummyResponse = { name: 'Teszt', email: 'teszt@example.com' };
       mockLocalStorage.setItem('token', dummyToken);
