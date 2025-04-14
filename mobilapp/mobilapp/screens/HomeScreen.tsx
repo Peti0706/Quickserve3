@@ -128,7 +128,7 @@ const HomeScreen = ({ navigation }: { navigation: HomeScreenNavigationProp }) =>
     screen: {
       flex: 1,
       padding: 20,
-      backgroundColor: '#252525', // Sötétebb háttér a nagyobb kontrasztért
+      backgroundColor: '#252525', 
     },
     title: {
       fontSize: 28,
@@ -151,14 +151,14 @@ const HomeScreen = ({ navigation }: { navigation: HomeScreenNavigationProp }) =>
     },
     orderItem: {
       padding: 15,
-      backgroundColor: '#3a3a3a', // Sötétebb kártya a kontraszt növeléséhez
+      backgroundColor: '#3a3a3a', 
       borderRadius: 10,
       marginBottom: 10,
       shadowColor: '#000',
       shadowOffset: { width: 0, height: 3 },
-      shadowOpacity: 0.3, // Erősebb árnyék
+      shadowOpacity: 0.3, 
       shadowRadius: 5,
-      elevation: 5, // Magasabb elevation
+      elevation: 5, 
     },
     orderRow: {
       flexDirection: 'row',
@@ -167,11 +167,11 @@ const HomeScreen = ({ navigation }: { navigation: HomeScreenNavigationProp }) =>
     orderLabel: {
       fontSize: 16,
       fontWeight: 'bold',
-      color: '#f0a500', // Világos narancssárga
+      color: '#f0a500', 
     },
     orderValue: {
       fontSize: 16,
-      color: '#fff', // Fehér
+      color: '#fff', 
     },
     orderButton: {
       marginTop: 10,
@@ -180,7 +180,7 @@ const HomeScreen = ({ navigation }: { navigation: HomeScreenNavigationProp }) =>
       backgroundColor: '#dd7a00',
       shadowColor: '#000',
       shadowOffset: { width: 0, height: 3 },
-      shadowOpacity: 0.3, // Erősebb árnyék
+      shadowOpacity: 0.3, 
       shadowRadius: 5,
       elevation: 5,
     },
@@ -191,7 +191,7 @@ const HomeScreen = ({ navigation }: { navigation: HomeScreenNavigationProp }) =>
       backgroundColor: '#073865',
       shadowColor: '#000',
       shadowOffset: { width: 0, height: 3 },
-      shadowOpacity: 0.3, // Erősebb árnyék
+      shadowOpacity: 0.3, 
       shadowRadius: 5,
       elevation: 5,
     },

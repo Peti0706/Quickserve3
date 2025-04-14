@@ -69,20 +69,20 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#f0f0f0', // Halvány szürke háttér a kontraszthoz
+    backgroundColor: '#f0f0f0', 
   },
   container: {
-    width: '85%', // A doboz szélessége a képernyő 85%-a
+    width: '85%', 
     paddingTop:50,
     paddingRight:20,
     paddingLeft:20,
-    backgroundColor: 'black', // Fekete háttér
-    borderRadius: 20, // Lekerekített sarkok
-    shadowColor: '#000', // Árnyék
+    backgroundColor: 'black', 
+    borderRadius: 20, 
+    shadowColor: '#000', 
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,
     shadowRadius: 8,
-    elevation: 10, // Android árnyék
+    elevation: 10, 
     paddingBottom:50
   },
   title: {
@@ -94,13 +94,13 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 50,
-    borderColor: '#073865', // Sötétkék keret
+    borderColor: '#073865', 
     borderWidth: 2,
     borderRadius: 10,
     marginBottom: 20,
     paddingHorizontal: 15,
-    backgroundColor: '#f5f5f5', // Halvány szürke háttér az inputnak
-    color: 'black', // Fekete szöveg
+    backgroundColor: '#f5f5f5', 
+    color: 'black', 
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
@@ -111,7 +111,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     borderRadius: 10,
     overflow: 'hidden',
-    backgroundColor: '#dd7a00', // Narancssárga gomb
+    backgroundColor: '#dd7a00', 
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.2,

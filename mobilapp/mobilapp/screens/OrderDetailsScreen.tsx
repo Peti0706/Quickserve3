@@ -208,11 +208,11 @@ const styles = StyleSheet.create({
     paddingBottom: 50,
   },
   detailItem: {
-    flexDirection: 'row', // Kép balra, szöveg jobbra
+    flexDirection: 'row', 
     padding: 15,
     backgroundColor: '#3a3a3a',
     borderRadius: 10,
-    marginBottom: 20, // Nagyobb hézag a kártyák között
+    marginBottom: 20, 
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 3 },
     shadowOpacity: 0.3,
@@ -224,11 +224,11 @@ const styles = StyleSheet.create({
     width: 120,
     height: 120,
     resizeMode: 'contain',
-    marginRight: 15, // Hézag a kép és a szöveg között
+    marginRight: 15, 
     alignSelf: 'center'
   },
   textContainer: {
-    flex: 1, // A szöveg kitölti a maradék helyet
+    flex: 1, 
     justifyContent: 'center',
   },
   detailRow: {
